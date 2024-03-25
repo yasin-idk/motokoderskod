@@ -1,0 +1,42 @@
+{
+  "canisters": {
+    "ledger": {
+      "type": "custom",
+      "candid": "https://raw.githubusercontent.com/dfinity/ic/a17247bd86c7aa4e87742bf74d108614580f216d/rs/rosetta-api/icrc1/ledger/ledger.did",
+      "wasm": "https://download.dfinity.systems/ic/a17247bd86c7aa4e87742bf74d108614580f216d/canisters/ic-icrc1-ledger.wasm.gz",
+      "remote": {
+        "id": {
+          "ic": "ryjl3-tyaaa-aaaaa-aaaba-cai"
+        }
+      }
+    },
+    "icp4_backend": {
+      "main": "src/icp4_backend/main.mo",
+      "type": "motoko"
+    },
+    "icp4_frontend": {
+      "dependencies": [
+        "icp4_backend"
+      ],
+      "frontend": {
+        "entrypoint": "src/icp4_frontend/src/index.html"
+      },
+      "source": [
+        "src/icp4_frontend/assets",
+        "dist/icp4_frontend/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+     "replica": {
+      "subnet_type":"system"
+    },
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
